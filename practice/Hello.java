@@ -1,0 +1,40 @@
+import java.util.*;
+class Hello{
+	public static void main(String[] args){
+		System.out.println("Question 1:");
+		Scanner Hel=new Scanner(System.in);
+		System.out.print("Enter any Number:");
+		int a = Hel.nextInt();
+		if(a%2==0){
+			System.out.println("It is a Even number!");
+		}
+		else{
+			System.out.println("It is a Odd number!");
+		}
+		
+		if(a>=0){
+			System.out.println("It is a Positive number!");
+		}
+		else{
+			System.out.println("It is a Negative number!");
+		}
+		
+		import java.util.*;
+		
+       System.out.println("Question 2:");
+		Scanner hi=new Scanner(System.in);
+		System.out.print("Enter How Many Product:");
+		int b=hi.nextInt();
+		int cost=0;
+		for (int i=0;i<=b;i++){
+				System.out.print("Enter price of the product:");
+				int c=hi.nextInt();
+				b+=c;
+		}
+		
+		System.out.print("TotalCost:");
+		System.out.print(cost);
+    }
+}
+	}
+}
