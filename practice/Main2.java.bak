@@ -1,0 +1,64 @@
+class InvoiceProcessor {
+
+    protected String customerName;
+    protected double amount;
+
+    public InvoiceProcessor(String customerName, double amount) {
+        this.customerName = customerName;
+        this.amount = amount;
+    }
+
+    public void generateInvoice() {
+        double finalAmount = calculateFinalAmount();
+        System.out.println("----- General Invoice -----");
+        System.out.println("Customer: " + customerName);
+        System.out.println("Amount: " + finalAmount);
+    }
+
+    private double calculateFinalAmount() {
+        System.out.println("Superclass internal calculation...");
+        return amount;
+    }
+}
+
+class RetailInvoice extends InvoiceProcessor {
+
+    private double discount;
+
+    public RetailInvoice(String customerName, double amount, double discount) {
+        super(customerName, amount);
+        this.discount = discount;
+    }
+
+    @Override
+    public void generateInvoice() {
+        double discountedAmount = applyDiscount();
+
+        System.out.println("----- Retail Invoice -----");
+        System.out.println("Customer: " + customerName);
+        System.out.println("Original Amount: " + amount);
+        System.out.println("Discount: " + discount);
+        System.out.println("Final Amount: " + discountedAmount);
+    }
+
+
+    public double applyDiscount() {
+        return amount - (amount * discount / 100);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        InvoiceProcessor invoice;
+		
+        invoice = new RetailInvoice("John Doe", 1000, 10);
+
+        invoice.generateInvoice();
+
+        System.out.println();
+
+        InvoiceProcessor normalInvoice = new InvoiceProcessor("Alice", 500);
+        normalInvoice.generateInvoice();
+    }
+}
