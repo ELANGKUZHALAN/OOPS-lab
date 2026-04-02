@@ -13,7 +13,7 @@ class Dog extends Animal {
 }
 
 
-public class Main {
+public class abstraction {
     public static void main(String[] args) {
         Animal obj = new Dog();
         obj.sound();
